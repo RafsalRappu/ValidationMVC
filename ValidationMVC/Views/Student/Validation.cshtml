@@ -1,0 +1,52 @@
+﻿@model ValidationMVC.Models.Student
+@{
+    ViewBag.Title = "Validation";
+    }
+
+    <h2> Registration Form</h2>
+
+<html>
+<head><style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    @using (@Html.BeginForm("Validation", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <fieldset>
+        <legend></legend>
+        @Html.LabelFor(m => m.Name)
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        @Html.DisplayFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })<br />
+
+
+        @Html.LabelFor(m => m.Marks)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        @Html.DisplayFor(m => m.Marks)
+        @Html.TextBoxFor(m => m.Marks)
+        @Html.ValidationMessageFor(m => m.Marks, "", new { @class = "error" })<br />
+
+        @Html.LabelFor(m => m.Password)
+        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+        @Html.DisplayFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })<br /><br />
+
+        @Html.LabelFor(m => m.ConfirmPassword)
+
+        @Html.DisplayFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "error" })<br /><br />
+
+
+        <input type="submit" class="btn btn-success" value="Submit" />
+    </fieldset>
+    }
+</body>
+
+</html>
+
